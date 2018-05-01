@@ -1,13 +1,4 @@
-<?php
-$conn=mysqli_connect("localhost", "root", "", "blog");
-
-if(mysqli_connect_error()) {
-    die ("Database connection error");
-}
-
-//echo "Connected successfully";
-?>
-
+<?php include('connection.php'); ?> 
 <html>  
     <head>
         <link rel="stylesheet" type="text/css" href="stylesheet.css">
@@ -30,7 +21,7 @@ if(mysqli_connect_error()) {
                 <label>Title</label>
                 <input type="text" name="title"><br> 
                 <label>Body</label>
-                <input type="text" name="body"><br> 
+                <textarea rows="4" cols="68" name="body"></textarea>
                 <button type="submit" name="save">save</button>
             </form>
         </div>

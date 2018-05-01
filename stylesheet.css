@@ -11,7 +11,7 @@
 }
 
 /* creates a button in the nav bar */
-.nav-link:link, a:visited  { 
+.nav-link  { 
     background-color: #f44336;
     line-height: 50px; 
     color: white;     
@@ -20,9 +20,31 @@
     text-decoration: none; 
 }
 
-.nav-link:hover, a:active {     
+.nav-link-grey  { 
+    background-color: grey;
+    line-height: 50px; 
+    color: white;     
+    float: right;    
+    padding: 0px 25px 0px 25px;
+    text-decoration: none; 
+}
+
+.nav-link:hover {     
     background-color: red;
 }
+
+.nav-link-grey:hover {     
+    background-color: #707070;
+}
+
+a:active {
+    color: white;     
+}
+
+a:visited  {
+    color: white;     
+}
+
 
 body {  
     font-family: Arial;

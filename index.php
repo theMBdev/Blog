@@ -1,12 +1,4 @@
-<?php
-$conn=mysqli_connect("localhost", "root", "", "blog");
-
-if(mysqli_connect_error()) {
-    die ("Database connection error");
-}
-
-//echo "Connected successfully";
-?>
+<?php include('connection.php'); ?> 
 
 <html>
     <head>
@@ -14,21 +6,30 @@ if(mysqli_connect_error()) {
         <link rel="stylesheet" type="text/css" href="stylesheet.css">
     </head>
     <body>
-        <div class="nav-bar"> 
-            <a href="createnewpost.php" class="nav-link">New Post</a>
+        <div class="nav-bar">             
+            <a href="createnewpost.php" class="nav-link">New Post</a> 
+            <a href="settings.php" class="nav-link-grey">Settings</a>
         </div>
         <div class="wrapper">
 
-
             <div class="header">
-                <h2>Blog Name</h2>
+
+                <?php  
+                $sql = "SELECT name FROM blog WHERE id=1";
+                $result = mysqli_query($conn,$sql);
+
+                $row = mysqli_fetch_assoc($result) ;                   
+                echo "<h2>" . $row["name"] ."</h2>";
+
+                ?>            
+
+
             </div>
 
             <div class="row">
                 <div class="leftcolumn">
-
                     <?php  
-                    $sql = "SELECT id, title, body FROM post";        
+                    $sql = "SELECT id, title, body FROM post ORDER BY id DESC";        
 
                     $result = mysqli_query($conn,$sql);  
 
@@ -40,23 +41,52 @@ if(mysqli_connect_error()) {
                             echo "</div>";
                         }            
                     } else {
-                        echo '<div class="card">';
-                            echo '<h2 class="center-text">' . 'Click "New Post" to create your first post' ."</h2>";                         
-                            echo "</div>";                       
+                        echo '<div class="card-post">';
+                        echo '<h2 class="center-text">
+                              Click "New Post" to create your first post
+                              </h2>';                         
+                        echo "</div>";                       
                     }                  
 
-                    ?>  
-
+                    ?> 
                 </div>
+
                 <div class="rightcolumn">
                     <div class="card">
-                        <h2>About Me</h2>                    
-                        <p>Name: ladad</p>
+                        <h2>About Me</h2> 
+                        <?php 
+
+                        $sql = "SELECT name FROM user WHERE id=1";                       
+
+                        $result = mysqli_query($conn,$sql);
+
+                        $row = mysqli_fetch_assoc($result);
+                        echo "<p>Name: " . $row["name"] ."</p>";
+
+                        ?>                          
                     </div>
+
+
+                    <div class="card">
+                        <h3>Blog Description</h3>
+                        <?php 
+
+                        $sql = "SELECT description FROM blog WHERE id=1";  
+
+                        $result = mysqli_query($conn,$sql);
+
+                        $row = mysqli_fetch_assoc($result);
+                        echo "<p>" . $row["description"] ."</p>";
+
+                        ?>                      
+                    </div>
+
+
                     <div class="card">
                         <h3>Follow Me</h3>
                         <p>Some text..</p>
                     </div>
+
                 </div>
             </div>
 
