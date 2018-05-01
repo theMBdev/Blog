@@ -1,6 +1,7 @@
 <?php include('connection.php'); ?> 
 <html>  
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="stylesheet.css">
     </head>
     <body>
@@ -16,14 +17,31 @@
         }
         ?>   
 
-        <div class="container">
-            <form action="createnewpost.php" method="POST">
-                <label>Title</label>
-                <input type="text" name="title"><br> 
-                <label>Body</label>
-                <textarea rows="4" cols="68" name="body"></textarea>
-                <button type="submit" name="save">save</button>
-            </form>
+
+        
+        <div class="center-form">
+            <div class="form-background">
+                <form action="createnewpost.php" method="POST">
+                    <div class="">
+                        <label for="title">Title</label>
+                        <input type="text" id="title" name="title" placeholder="Post title">
+                    </div>
+
+                    <div class="">
+                        <label for="body">Post</label>
+                        <textarea rows="10" cols="70" id="body" name="body"></textarea> 
+                    </div>
+
+                    <button class="submitbutton" type="submit" name="save">Post</button>
+                    
+                </form>
+            </div>
         </div>
+        
+        
+        
+        
+        
+        
     </body>
 </html>
