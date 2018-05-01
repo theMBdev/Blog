@@ -10,24 +10,27 @@
     padding-right: 20px
 }
 
-.nav-link { 
-    line-height: 50px;  
-    margin-right: 20px;
-    float: right;
+/* creates a button in the nav bar */
+.nav-link:link, a:visited  { 
+    background-color: #f44336;
+    line-height: 50px; 
+    color: white;     
+    float: right;    
+    padding: 0px 25px 0px 25px;
+    text-decoration: none; 
 }
 
-.nav-link :hover {     
-    background-color: aqua;
-    color: aqua;
+.nav-link:hover, a:active {     
+    background-color: red;
 }
 
 body {  
+    font-family: Arial;
     margin: 0px;    
 }
 
 /* Add a gray background color with some padding */
-.wrapper {
-    font-family: Arial;
+.wrapper {    
     padding: 20px;
     background: #f1f1f1;
 }
@@ -54,6 +57,10 @@ body {
     padding-left: 20px;
 }
 
+.center-text {
+    text-align: center;
+}
+
 /* Fake image */
 .fakeimg {
     background-color: #aaa;
@@ -62,10 +69,20 @@ body {
 }
 
 /* Add a card effect for articles */
+.card-post {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+    border-left: 4px solid #f44336;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;        
+}
+
 .card {
-     background-color: white;
-     padding: 20px;
-     margin-top: 20px;
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px; 
+    border-radius: 10px;   
 }
 
 /* Clear floats after the columns */
@@ -83,10 +100,33 @@ body {
     margin-top: 20px;
 }
 
+.container {
+    width: 500px;
+    clear: both;
+}
+
+.container input {
+    width: 100%;
+    clear: both;
+}
+
+
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 800px) {
     .leftcolumn, .rightcolumn {   
         width: 100%;
         padding: 0;
     }
+    
+    .card-post {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+    border-left: 4px solid #f44336;
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;        
 }
+    
+    
+}
+
