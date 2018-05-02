@@ -30,13 +30,12 @@
             $result = mysqli_query($conn,$sql);    
 
             if($sql) {
-                
+
                 echo '<div id="snackbarsuccess">Blog title changed</div>';
 
                 echo '<script type="text/javascript">',
                 'success();',
-                '</script>'
-                    ;
+                '</script>';                
 
             } else {
                 echo "fail";
@@ -45,9 +44,9 @@
             //header("Location:index.php");
         }    
 
-        if(isset($_POST['change-blog-descripiton']))
+        if(isset($_POST['change-blog-description']))
         {   
-            $blogdescription = $_POST['blog-descripiton'];
+            $blogdescription = $_POST['blog-description'];
 
             //needs change. sql injection
             $sql = "UPDATE blog ". "SET description='$blogdescription'". "WHERE id=1";
@@ -55,13 +54,13 @@
             $result = mysqli_query($conn,$sql);    
 
             if($sql) {
-                
+
                 echo '<div id="snackbarsuccess">Blog description changed</div>';
 
                 echo '<script type="text/javascript">',
                 'success();',
                 '</script>';                
-                
+
             } else {
                 echo "fail";
             }
@@ -79,7 +78,12 @@
             $result = mysqli_query($conn,$sql);    
 
             if($sql) {
-                echo "Name Updated";
+                echo '<div id="snackbarsuccess">Name changed</div>';
+
+                echo '<script type="text/javascript">',
+                'success();',
+                '</script>';                    
+
             } else {
                 echo "fail";
             }
@@ -87,82 +91,108 @@
             //header("Location:index.php");
         }  
 
-        ?>   
-        <h2>Blog</h2>
+        ?> 
 
-        <form action="settings.php" method="POST">
-            <div class="form-grop">
-                <label for="blog-title">Title:</label>
-                <?php
-                $sql = "SELECT name FROM blog WHERE id=1";  
+        <div class="side-nav"></div>  
 
-                $result = mysqli_query($conn,$sql);
-                $row = mysqli_fetch_assoc($result);
-                $blogtitle = $row["name"];  
+        <div class="wrapper-main">
+            <div class="settings-section">
+                <div class="settings-heading"><h2>Blog</h2></div>
 
-                echo '<span id="blog-title">' .$blogtitle. '</span>'; 
-                // If user input " will break
-                echo '<input class="hide-on-load show-blog-title" value=' .'"'.$blogtitle.'"'. 'name="blog-title"/> ';
-                ?>               
-                <a class="edit" id="edit-blog-title">Edit</a> <!-- style blue on click jquery --> 
-                <button class="hide-on-load show-blog-title" type="submit" name="change-blog-title">Save</button>
-                <button id="cancel-blog-title" class="hide-on-load show-blog-title" type="reset" name="cancel">Cancel</button>
+                <form action="settings.php" method="POST">
+                    <div class="section-body">
+                        <div class="section-content">
+                            <div class="section-left">
+                                <label for="blog-title">Title:</label>
+                            </div>
+
+                            <?php
+                            $sql = "SELECT title FROM blog WHERE id=1";  
+
+                            $result = mysqli_query($conn,$sql);
+                            $row = mysqli_fetch_assoc($result);
+                            $blogtitle = $row["title"];  
+
+                            echo '<span id="blog-title">' .$blogtitle. '</span>'; 
+                            // If user input " will break
+                            echo '<input class="hide-on-load show-blog-title" value=' .'"'.$blogtitle.'"'. 'name="blog-title"/>';
+                            ?>               
+                            <a class="edit" id="edit-blog-title">Edit</a> <!-- style blue on click jquery --> 
+                            <button class="hide-on-load show-blog-title  button-primary" type="submit" name="change-blog-title">Save</button>
+                            <button id="cancel-blog-title" class="hide-on-load show-blog-title button-secondary" type="reset" name="cancel">Cancel</button>
+                        </div>  
+                    </div>
+                </form>
+
+
+
+
+                <div class="settings-body">
+                    <form action="settings.php" method="POST">
+                        <div class="section-body">
+                            <div class="section-content">
+                                <div class="section-left">
+                                    <label for="blog-description">Descripiton:</label>
+                                </div>
+                                <?php
+                                $sql = "SELECT description FROM blog WHERE id=1";  
+
+                                $result = mysqli_query($conn,$sql);
+                                $row = mysqli_fetch_assoc($result);
+                                $blogdescripiton = $row["description"];  
+
+                                echo '<span id="blog-description">' .$blogdescripiton. '</span>'; 
+                                // If user input " will break
+                                echo '<input class="hide-on-load show-blog-description" value=' .'"'.$blogdescripiton.'"'. 'name="blog-description"/> ';
+                                ?>               
+                                <a class="edit" id="edit-blog-description">Edit</a> <!-- style blue on click jquery --> 
+                                <button class="hide-on-load show-blog-description  button-primary" type="submit" name="change-blog-description">Save</button>
+                                <button id="cancel-blog-description" class="hide-on-load show-blog-description button-secondary" type="reset" name="cancel">Cancel</button>
+                            </div>  
+                        </div>
+                    </form>
+                </div>
+            </div>           
+
+            <div class="settings-section">
+                <div class="settings-heading"><h2>You</h2></div>
+
+                <form action="settings.php" method="POST">
+                    <div class="section-body">
+                        <div class="section-content">
+                            <div class="section-left">
+                                <label for="name">Name:</label>
+                            </div>
+                            <?php
+                            $sql = "SELECT name FROM user WHERE id=1";  
+
+                            $result = mysqli_query($conn,$sql);
+                            $row = mysqli_fetch_assoc($result);
+                            $name = $row["name"];  
+
+                            echo '<span id="blog-name">' .$name. '</span>'; 
+                            // If user input " will break
+                            echo '<input class="hide-on-load show-name" value=' .'"'.$name.'"'. 'name="name"/> ';
+                            ?>               
+                            <a class="edit" id="edit-name">Edit</a> <!-- style blue on click jquery --> 
+                            <button class="hide-on-load show-name button-primary" type="submit" name="change-name">Save</button>
+                            <button id="cancel-name" class="hide-on-load show-name button-secondary" type="reset" name="cancel">Cancel</button>
+                        </div>  
+                    </div>
+                </form>                
             </div>
-        </form>
-        
-        <form action="settings.php" method="POST">
-            <div class="form-grop">
-                <label for="blog-description">Descripiton:</label>
-                <?php
-                $sql = "SELECT description FROM blog WHERE id=1";  
-
-                $result = mysqli_query($conn,$sql);
-                $row = mysqli_fetch_assoc($result);
-                $blogdescripiton = $row["description"];  
-
-                echo '<span id="blog-description">' .$blogdescripiton. '</span>'; 
-                // If user input " will break
-                echo '<input class="hide-on-load show-blog-description" value=' .'"'.$blogdescripiton.'"'. 'name="blog-descripiton"/> ';
-                ?>               
-                <a class="edit" id="edit-blog-description">Edit</a> <!-- style blue on click jquery --> 
-                <button class="hide-on-load show-blog-description" type="submit" name="change-blog-descripiton">Save</button>
-                <button id="cancel-blog-description" class="hide-on-load show-blog-description" type="reset" name="cancel">Cancel</button>
-            </div>
-        </form>
-
-            <h2>You</h2>
-        
-        <form action="settings.php" method="POST">
-            <div class="form-grop">
-                <label for="blog-description">Name:</label>
-                <?php
-                $sql = "SELECT name FROM user WHERE id=1";  
-
-                $result = mysqli_query($conn,$sql);
-                $row = mysqli_fetch_assoc($result);
-                $name = $row["name"];  
-
-                echo '<span id="blog-name">' .$name. '</span>'; 
-                // If user input " will break
-                echo '<input class="hide-on-load show-name" value=' .'"'.$name.'"'. 'name="name"/> ';
-                ?>               
-                <a class="edit" id="edit-name">Edit</a> <!-- style blue on click jquery --> 
-                <button class="hide-on-load show-name" type="submit" name="change-name">Save</button>
-                <button id="cancel-name" class="hide-on-load show-name" type="reset" name="cancel">Cancel</button>
-            </div>
-        </form>
-
 
             <a href="index.php"><button >Home</button></a>
 
-       
+
+        </div>
     </body>
     <script>
 
         $(document).ready(function(){   
             $(".hide-on-load").hide();     
         });
-        
+
         // blog title
         $(document).ready(function(){
             $("#edit-blog-title").click(function(){
@@ -179,7 +209,7 @@
                 $(".show-blog-title").toggle(); 
             });
         });
-        
+
         // blog description
         $(document).ready(function(){
             $("#edit-blog-description").click(function(){
@@ -189,7 +219,7 @@
             });
         });
 
-        
+
         $(document).ready(function(){
             $("#cancel-blog-description").click(function(){
                 $("#edit-blog-description").toggle();  
@@ -197,7 +227,7 @@
                 $(".show-blog-description").toggle(); 
             });
         });
-        
+
         // name of user
         $(document).ready(function(){
             $("#edit-name").click(function(){
@@ -207,7 +237,7 @@
             });
         });
 
-        
+
         $(document).ready(function(){
             $("#cancel-name").click(function(){
                 $("#edit-name").toggle();  

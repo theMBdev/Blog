@@ -15,11 +15,11 @@
             <div class="header">
 
                 <?php  
-                $sql = "SELECT name FROM blog WHERE id=1";
+                $sql = "SELECT title FROM blog WHERE id=1";
                 $result = mysqli_query($conn,$sql);
 
                 $row = mysqli_fetch_assoc($result) ;                   
-                echo "<h2>" . $row["name"] ."</h2>";
+                echo "<h2>" . $row["title"] ."</h2>";
 
                 ?>            
 

@@ -16,8 +16,6 @@
             header("Location:index.php");
         }
         ?>   
-
-
         
         <div class="center-form">
             <div class="form-background">
@@ -36,12 +34,7 @@
                     
                 </form>
             </div>
-        </div>
-        
-        
-        
-        
-        
+        </div>                
         
     </body>
 </html>
