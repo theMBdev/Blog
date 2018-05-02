@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+
+$(document).ready(function(){
+   
+        $("p").hide();
+        $("#b2").hide();
+        $("p").hide();
+        $("#i2").hide();
+        
+    
+});
+
+$(document).ready(function(){
+    $("#b1").click(function(){
+        $("#b2").toggle();
+        $("p").toggle();
+        $("#i2").toggle();
+        $("#b1").toggle();
+    });
+});
+
+$(document).ready(function(){
+    $("#b2").click(function(){
+        $("#b1").toggle();
+        $("p").toggle();
+        $("#i2").toggle();
+        $("#b2").toggle();
+    });
+});
+</script>
+</head>
+<body>
+
+<button id="b1">Toggle between hiding and showing the paragraphs</button>
+
+<button id="b2">cancel</button>
+
+<input id="i2" type="text" value="fsd">;
+<p>This is a paragraph with little content.</p>
+<p>This is another small paragraph.</p>
+
+</body>
+</html>
