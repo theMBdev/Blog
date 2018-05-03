@@ -20,14 +20,14 @@
         <div class="center-form">
             <div class="form-background">
                 <form action="createnewpost.php" method="POST">
-                    <div class="">
+                    <div class="f">
                         <label for="title">Title</label>
                         <input type="text" id="title" name="title" placeholder="Post title">
                     </div>
 
                     <div class="">
                         <label for="body">Post</label>
-                        <textarea rows="10" cols="70" id="body" name="body"></textarea> 
+                        <textarea id="post-input" rows="10" cols="70" id="body" name="body"></textarea> 
                     </div>
 
                     <button class="submitbutton" type="submit" name="save">Post</button>

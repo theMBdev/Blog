@@ -177,7 +177,7 @@ input[type=submit]:hover {
 
 }
 
-textarea {   
+.post-input {   
     font-family: "Tahoma", "Arial", "Arabic Transparent";
     width: 100%;
     padding: 12px 20px;
@@ -187,8 +187,7 @@ textarea {
     border-radius: 4px;
     box-sizing: border-box;    
     max-width: 100%;
-    min-width: 100%;
-    
+    min-width: 100%;    
 }
 
 .center-form {
@@ -225,6 +224,21 @@ textarea {
     background-color: darkgray;
     overflow-x: hidden;
     padding-top: 20px;
+}
+
+.side-nav-link {
+    height: 50px;
+    width: 200px;
+    z-index: 1;    
+    padding: 15px;    
+}
+
+.side-nav-link:hover {
+    background-color: aqua;    
+}
+
+.side-nav-link a {
+    
 }
 
 .wrapper-main {

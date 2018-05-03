@@ -8,7 +8,7 @@
     <body>
         <div class="nav-bar">             
             <a href="createnewpost.php" class="nav-link">New Post</a> 
-            <a href="settings.php" class="nav-link-grey">Settings</a>
+            <a href="cms.php" class="nav-link-grey">Settings</a>
         </div>
         <div class="wrapper">
 
