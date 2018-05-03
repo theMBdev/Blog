@@ -12,11 +12,11 @@
     </head>
     <body>     
         <div class="side-nav">
-            <div class="side-nav-link">
-                <a class="ajaxTrigger" load="posts.php">Posts</a>            
+            <div class="side-nav-link ajaxTrigger" load="posts.php">
+                <a>Posts</a>            
             </div>
-            <div class="side-nav-link">
-                <a class="ajaxTrigger" load="settings.php">Settings</a>            
+            <div class="side-nav-link ajaxTrigger" load="settings.php">
+                <a>Settings</a>            
             </div>
 
         </div> 

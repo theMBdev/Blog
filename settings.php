@@ -81,13 +81,9 @@
                             echo '<span id="blog-description">' .$blogdescription. '</span>'; 
                             // If user input " will break
 
-                            echo '<textarea class="hide-on-load show-blog-description" id="description" value=' .'"'.$blogdescription.'"'. 'name="blog-description" rows="10" cols="30" ></textarea>';
+                            echo '<textarea class="hide-on-load show-blog-description descriptiontext" id="description" name="blog-description" rows="10" cols="30" >' .$blogdescription. '</textarea>';
 
-                            echo '<input class="hide-on-load show-blog-description" id="description" value=' .'"'.$blogdescription.'"'. 'name="blog-description"/> ';
                             ?>       
-                            
-                            
-
 
                             <a class="edit" id="edit-blog-description">Edit</a> <!-- style blue on click jquery --> 
 
@@ -162,7 +158,7 @@
 
         $(document).ready(function(){
             $("#submit-title").click(function(){
-                 $("#edit-blog-title").toggle();  
+                $("#edit-blog-title").toggle();  
                 $("#blog-title").toggle();
                 $(".show-blog-title").toggle();  
             });
@@ -236,14 +232,13 @@
         });   
     </script>
 
-
     <script>        
         $(function() {
-            $("#submit-name").click(function() {
-                var name = $("#name").val();            
-                var dataString = 'name='+ name;
+            $("#submit-title").click(function() {
+                var title = $("#title").val();            
+                var dataString = 'title='+ title;
 
-                if(name=='')
+                if(title=='')
                 {   
                     $('.error').fadeOut(200).show();
                 }
@@ -251,12 +246,12 @@
                 {
                     $.ajax({
                         type: "POST",
-                        url: "savename.php",
+                        url: "savetitle.php",
                         data: dataString,
                         success: function(){
                             success();
-                            $("#snackbarsuccess").html("Name changed");
-                            $('#blog-name').html(name);
+                            $("#snackbarsuccess").html("Title changed");
+                            $('#blog-title').html(title);
                             $('.error').fadeOut(200).hide();
                         }
                     });
@@ -297,11 +292,11 @@
 
     <script>        
         $(function() {
-            $("#submit-title").click(function() {
-                var title = $("#title").val();            
-                var dataString = 'title='+ title;
+            $("#submit-name").click(function() {
+                var name = $("#name").val();            
+                var dataString = 'name='+ name;
 
-                if(title=='')
+                if(name=='')
                 {   
                     $('.error').fadeOut(200).show();
                 }
@@ -309,12 +304,12 @@
                 {
                     $.ajax({
                         type: "POST",
-                        url: "savetitle.php",
+                        url: "savename.php",
                         data: dataString,
                         success: function(){
                             success();
-                            $("#snackbarsuccess").html("Title changed " + title);
-                            $('#blog-title').html(title);
+                            $("#snackbarsuccess").html("Name changed");
+                            $('#blog-name').html(name);
                             $('.error').fadeOut(200).hide();
                         }
                     });
@@ -323,9 +318,5 @@
             });
         });
     </script>
-
-
-
-
-
+    
 </html>

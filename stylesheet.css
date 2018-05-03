@@ -214,6 +214,10 @@ input[type=submit]:hover {
 
 /* Settings */
 
+h2 {
+    margin-top: 0px;
+}
+
 .side-nav {
     height: 100%;
     width: 200px;
@@ -258,11 +262,11 @@ input[type=submit]:hover {
 }
 
 .section-body {    
-    width: 700px;
+    width: 800px;
 }
 
 .section-body:hover {
-    background-color: lightgoldenrodyellow;    
+    background-color: #f6f6f6;    
 }
 
 .section-content {
@@ -288,6 +292,14 @@ input[type=submit]:hover {
 
 .edit {
  color: skyblue;
+}
+
+.descriptiontext {
+    width: 200px;
+    height: 100px;
+    max-width: 300px;
+    
+    
 }
 
 .button-primary {
