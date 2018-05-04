@@ -291,7 +291,7 @@ h2 {
 }
 
 .edit {
- color: skyblue;
+ color: #6499BE;
 }
 
 .descriptiontext {
@@ -334,11 +334,46 @@ h2 {
     background-color: #eeeeee;
 }
 
+/* cms-posts */
+
+.posts-row {
+    height: 60px;
+    width: 100%;
+    background-color: aqua; 
+    padding-left: 10px;
+}
+
+.post-title {
+    background-color: white;
+    width: 400px;
+    height: 30px;    
+    padding-top: 5px;
+}
+
+/*CHANGE a tags to one section CHANGE */
+
+.post-title a {
+    color: #6499BE;
+}
+
+.post-title a:hover {
+    text-decoration: underline;
+}
+
+.post-options a {
+    color: #6499BE;
+}
+
+.post-options a:hover {
+    text-decoration: underline;
+}
+
+
 /* Alert */
 
 .success {
     background-color: #ddffdd;
-    border-left: 6px solid #4CAF50;
+    border-left: 6px solid #4CAF50;    
 }
 
 /* snack bar */
