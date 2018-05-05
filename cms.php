@@ -12,7 +12,7 @@
     </head>
     <body>     
         <div class="side-nav">
-            <div class="side-nav-link ajaxTrigger" load="posts.php">
+            <div class="side-nav-link ajaxTrigger" load="cms-posts.php">
                 <a>Posts</a>            
             </div>
             <div class="side-nav-link ajaxTrigger" load="settings.php">

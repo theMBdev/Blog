@@ -47,7 +47,7 @@
 
 
 body {  
-    font-family: Arial;
+     font-family: "Arial", "Arabic Transparent";
     margin: 0px;    
 }
 
@@ -178,7 +178,7 @@ input[type=submit]:hover {
 }
 
 .post-input {   
-    font-family: "Tahoma", "Arial", "Arabic Transparent";
+    font-family: "Arial", "Arabic Transparent";
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -334,13 +334,32 @@ h2 {
     background-color: #eeeeee;
 }
 
+/* textarea */
+
+.textarea-post {
+    font-family: "Arial", "Arabic Transparent";
+    padding: 12px 20px;
+    border-radius: 4px;    
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;    
+    border: 1px solid #ccc;    
+    box-sizing: border-box;    
+    max-width: 100%;
+    min-width: 100%;    
+    
+}
+
+
+
 /* cms-posts */
 
-.posts-row {
+.post-row {
     height: 60px;
     width: 100%;
     background-color: aqua; 
     padding-left: 10px;
+    border-style: solid;
 }
 
 .post-title {
@@ -360,8 +379,12 @@ h2 {
     text-decoration: underline;
 }
 
+.post-options { 
+    
+}
+
 .post-options a {
-    color: #6499BE;
+    color: #6499BE;    
 }
 
 .post-options a:hover {

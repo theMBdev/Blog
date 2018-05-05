@@ -5,14 +5,13 @@ include('connection.php');
 
 if ($_POST) {
     
-    $blogdescription = $_POST['description'];
+     $description=$_POST['description'];
 
             //needs change. sql injection
-            $sql = "UPDATE blog ". "SET description='$blogdescription'". "WHERE id=1";
+            $sql = "UPDATE blog ". "SET description='$description'". "WHERE id=1";
 
-            $result = mysqli_query($conn,$sql);    
-
-
+            $result = mysqli_query($conn,$sql);              
 }
            
 ?>
+

@@ -18,6 +18,7 @@
         ?>   
         
         <div class="center-form">
+              <h1>New Post</h1>
             <div class="form-background">
                 <form action="createnewpost.php" method="POST">
                     <div class="f">
@@ -27,7 +28,7 @@
 
                     <div class="">
                         <label for="body">Post</label>
-                        <textarea id="post-input" rows="10" cols="70" id="body" name="body"></textarea> 
+                        <textarea class="textarea-post" id="post-input" rows="10" cols="70" id="body" name="body" placeholder="Post Content"></textarea> 
                     </div>
 
                     <button class="submitbutton" type="submit" name="save">Post</button>
