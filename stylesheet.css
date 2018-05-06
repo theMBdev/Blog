@@ -12,7 +12,7 @@
 
 /* creates a button in the nav bar */
 .nav-link  { 
-    background-color: #f44336;
+    background-color: #00D568;
     line-height: 50px; 
     color: white;     
     float: right;    
@@ -30,7 +30,7 @@
 }
 
 .nav-link:hover {     
-    background-color: red;
+    background-color: #19D97C;
 }
 
 .nav-link-grey:hover {     
@@ -64,7 +64,11 @@ body {
     padding: 30px;
     font-size: 40px;
     text-align: center;
-    background: white;
+    background: white;     
+}
+
+h2 {
+    margin: 0px;
 }
 
 /* Create two unequal columns that floats next to each other */
@@ -97,7 +101,7 @@ body {
     background-color: white;
     padding: 20px;
     margin-top: 20px;
-    border-left: 4px solid #f44336;
+    border-left: 5px solid #00D568;
     border-bottom-right-radius: 10px;
     border-top-right-radius: 10px;        
 }
@@ -218,28 +222,41 @@ h2 {
     margin-top: 0px;
 }
 
-.side-nav {
+#side-nav {
     height: 100%;
     width: 200px;
     position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: darkgray;
+    background-color: #191919;
     overflow-x: hidden;
-    padding-top: 20px;
+    padding-top: 20px; 
 }
 
 .side-nav-link {
     height: 50px;
     width: 200px;
     z-index: 1;    
-    padding: 15px;    
+    padding: 15px;
+    color: white;         
+    border-left: 5px solid transparent;
+    
 }
 
-.side-nav-link:hover {
-    background-color: aqua;    
+.active, .side-nav-link:hover {
+    background-color: #2F2F2F;       
+    color: white;
+    border-left: solid 5px;
+    border-color: #00D568; 
+    
 }
+
+/*
+.side-nav-link:hover {
+    background-color: #2F2F2F;    
+}
+*/
 
 .side-nav-link a {
     
@@ -253,8 +270,13 @@ h2 {
 
 .settings-section {
     background-color: white;
-    height: 220px;
+    height: 200px;
     padding: 0 10px 10px;
+    border-style: solid;
+    border-left-style:hidden;
+    border-right-style: hidden;
+    border-top-style: hidden;
+    border-width: 1px;
 }
 
 .section-heading {
@@ -290,15 +312,11 @@ h2 {
     text-decoration: underline;
 }
 
-.edit {
- color: #6499BE;
-}
 
 .descriptiontext {
     width: 200px;
     height: 100px;
-    max-width: 300px;
-    
+    max-width: 300px;    
     
 }
 
@@ -346,7 +364,7 @@ h2 {
     border: 1px solid #ccc;    
     box-sizing: border-box;    
     max-width: 100%;
-    min-width: 100%;    
+    min-width: 100%;     
     
 }
 
@@ -357,9 +375,13 @@ h2 {
 .post-row {
     height: 60px;
     width: 100%;
-    background-color: aqua; 
+    background-color: white; 
     padding-left: 10px;
     border-style: solid;
+    border-left-style:hidden;
+    border-right-style: hidden;
+    border-top-style: hidden;
+    border-width: 1px;
 }
 
 .post-title {
@@ -371,6 +393,14 @@ h2 {
 
 /*CHANGE a tags to one section CHANGE */
 
+.edit {
+ color: #6499BE;
+}
+
+.edit:hover{
+ text-decoration: underline;
+}
+
 .post-title a {
     color: #6499BE;
 }
@@ -381,6 +411,10 @@ h2 {
 
 .post-options { 
     
+}
+
+a {
+    text-decoration: none;
 }
 
 .post-options a {
@@ -459,7 +493,7 @@ However, delay the fade out process for 2.5 seconds */
         background-color: white;
         padding: 20px;
         margin-top: 20px;
-        border-left: 4px solid #f44336;
+        border-left: 5px solid #f44336;
         border-bottom-right-radius: 0px;
         border-top-right-radius: 0px;        
     }

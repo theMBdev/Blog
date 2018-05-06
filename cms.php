@@ -8,11 +8,11 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-        
+
     </head>
     <body>     
-        <div class="side-nav">
-            <div class="side-nav-link ajaxTrigger" load="cms-posts.php">
+        <div id="side-nav">
+            <div class="side-nav-link ajaxTrigger active" load="cms-posts.php">
                 <a>Posts</a>            
             </div>
             <div class="side-nav-link ajaxTrigger" load="settings.php">
@@ -29,7 +29,8 @@
         </div>
     </body>
     <script>
-        $(document).ready(function(){
+        $(document).ready(function(){     
+          $("#ajaxContent").load("http://localhost/blog/cms-posts.php");
             $(".ajaxTrigger").click(function(){
                 var pageName = $(this).attr("load");
                 $("#ajaxContent").load("http://localhost/blog/"+pageName);
@@ -37,5 +38,20 @@
         });
     </script>
 
+
+    <script>
+        // Add active class to the current button (highlight it)
+        var header = document.getElementById("side-nav");
+        
+        var btns = header.getElementsByClassName("side-nav-link");
+        
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function() {
+                var current = document.getElementsByClassName("active");
+                current[0].className = current[0].className.replace(" active", "");
+                this.className += " active";
+            });
+        }
+    </script>
 
 </html>

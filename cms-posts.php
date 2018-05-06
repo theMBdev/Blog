@@ -20,25 +20,84 @@
             while($row = mysqli_fetch_assoc($result)) {
 
                 echo '<div class="post-row" id="row'.$row['id'].'">';                            
-                echo '<div class="post-title"><a>' . $row["title"] . '</a></div>';           
-                echo '<div class="post-options arow'.$row['id'].' "><a href="editpost.php?id='.$row['id'].'">Edit</a>&nbsp;|&nbsp;<a>Delete</a></div>';     
+                echo '<div class="post-title">' . $row["title"] . '</div>'; 
+                
+                echo '<div class="post-options arow'.$row['id'].'">
+                <a href="editpost.php?id='.$row['id'].'">Edit</a>
+                &nbsp;|&nbsp;
+                <a class="delete" id='.$row['id'].'">Delete</a></div>'; 
+                
                 echo "</div>";
             }            
-        } else {
-            echo '<div class="card-post">';
-            echo '<h2 class="center-text">
-                              Click "New Post" to create your first post
-                              </h2>';                         
-            echo "</div>";                       
+        } else {                               
         }   
         ?>  
 
-        <div class="post-row">
-            <div class="post-title">fdfd</div>
-            <div class="post-options"><a>Edit</a>&nbsp;|&nbsp;<a>Delete</a></div>
-        </div>
-
     </body>
+
+
+    <script>   
+
+        $(document).ready(function(){
+
+            // Delete 
+            $('.delete').click(function(){
+                var el = this;
+                var id = this.id;  
+                                                           
+                var dataString = 'id='+ id;
+
+                // AJAX Request
+                $.ajax({
+                    url: 'deletepost.php',
+                    type: 'POST',
+                    data: dataString,
+                    success: function(response){
+
+                        // Removing row from HTML Table
+                        $(el).parents('.post-row').css('background','tomato');
+                        $(el).parents('.post-title').css('background','tomato');
+                        
+                        $(el).closest('.post-row').fadeOut(800, function(){ 
+                            $(this).remove();
+                        });
+                    }
+                });
+
+            });
+
+        });
+    </script>
+    
+    
+     <script>        
+        $(function() {
+            $("#submit-name").click(function() {
+                var name = $("#name").val();            
+                var dataString = 'name='+ name;
+
+                if(name=='')
+                {   
+                    $('.error').fadeOut(200).show();
+                }
+                else
+                {
+                    $.ajax({
+                        type: "POST",
+                        url: "savename.php",
+                        data: dataString,
+                        success: function(){
+                            success();
+                            $("#snackbarsuccess").html("Name changed");
+                            $('#blog-name').html(name);
+                            $('.error').fadeOut(200).hide();
+                        }
+                    });
+                }
+                return false;
+            });
+        });
+    </script>
 
     <script>
 
@@ -66,6 +125,8 @@
         //        });
 
     </script>
+
+
 
 
 

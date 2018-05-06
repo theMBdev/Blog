@@ -9,7 +9,7 @@
         <?php
 
         $myID = $_GET['id'];
-        
+
         $sql = "SELECT * FROM post WHERE id='".$myID."'";;        
 
         $result = mysqli_query($conn,$sql);  
@@ -18,33 +18,33 @@
 
         $Gtitle = $row['title'];
         $Gbody = $row['body'];  
-        
+
         ?>
 
         <?php    
         if(isset($_POST['save']))        {   
-        
+
             $theid = $_REQUEST["id"];
-            
-            
-            
+
+
+
             $Ptitle=$_POST['title'];
             $Pbody=$_POST['body'];
-            
+
             echo $Ptitle;
             echo $Pbody;
-                                                                            
+
             $sql = "UPDATE post ". "SET title='$Ptitle', body='$Pbody'". "WHERE id='$theid'";            
-            
-            
+
+
             $result = mysqli_query($conn,$sql);        
             header("Location:index.php");
         }
         else {
-            
+
         }
         ?>    
-        
+
         <div class="center-form">
             <h1>Edit Post</h1>
             <div class="form-background">

@@ -129,8 +129,6 @@
                     </div>  
 
 
-
-
                     <span class="error" style="display:none"> Please Enter Valid Data</span>
                     <span class="success" style="display:none"> Form Submitted Success</span>
 
@@ -318,5 +316,8 @@
             });
         });
     </script>
-    
+
+
+
+
 </html>
