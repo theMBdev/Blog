@@ -6,7 +6,7 @@
 .nav-bar {
     height: 50px;
     width: auto;
-    background-color: darkgray;
+    background-color: black;
     padding-right: 20px
 }
 
@@ -48,15 +48,21 @@
 
 body {  
      font-family: "Arial", "Arabic Transparent";
-    margin: 0px;    
+    margin: 0px;  
+    background: #C0C0C0;
 }
 
-
+.main-wrapper {    
+    width: 1200px;
+    margin: 0px auto;
+    box-shadow: 0px 8px 10px 5px rgba(0,0,0,.2);    
+}
 
 /* Add a gray background color with some padding */
 .wrapper {    
     padding: 20px;
     background: #f1f1f1;
+    
 }
 
 /* Header/Blog Title */
@@ -488,12 +494,8 @@ However, delay the fade out process for 2.5 seconds */
         width: 100%;
         padding: 0;
     }
-
-    .card-post {
-        background-color: white;
-        padding: 20px;
-        margin-top: 20px;
-        border-left: 5px solid #f44336;
+    
+    .card-post { 
         border-bottom-right-radius: 0px;
         border-top-right-radius: 0px;        
     }
