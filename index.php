@@ -107,8 +107,7 @@
 
     <script>
         $(function () {
-            $(window).bind("resize", function () {
-                console.log($(this).width())
+            $(window).bind("resize", function () {                
                 if ($(this).width() < 1200) {
                     $('div').removeClass('main-wrapper');
                 } else {
@@ -117,6 +116,21 @@
             }).trigger('resize');
         });
     </script>
+    
+    <script>
+        $(function () {
+            $(window).bind("resize", function () {                
+                if ($(this).width() < 784) {
+                    $('.nav-link').addClass('nav-link-50');
+                    $('.nav-link-grey').addClass('nav-link-50');
+                } else {
+                     $('.nav-link').removeClass('nav-link-50');
+                    $('.nav-link-grey').removeClass('nav-link-50');
+                }
+            }).trigger('resize');
+        });
+    </script>        
+   
 
 
 </html>

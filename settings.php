@@ -136,8 +136,6 @@
             </form>                
         </div>
 
-        <a href="index.php"><button >Home</button></a>
-
     </body>
     <script>
 

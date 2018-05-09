@@ -16,7 +16,7 @@
     color: white;     
     float: right;    
     padding: 0px 25px 0px 25px;
-    text-decoration: none; 
+    text-decoration: none;
 }
 
 .nav-link-grey  { 
@@ -25,11 +25,15 @@
     color: white;     
     float: right;    
     padding: 0px 25px 0px 25px;
-    text-decoration: none; 
+    text-decoration: none;     
+}
+
+.nav-link-50 {
+    width: 50%;
 }
 
 .nav-link:hover {     
-    background-color: #19D97C;
+    background-color: #00BF5D;
 }
 
 .nav-link-grey:hover {     
