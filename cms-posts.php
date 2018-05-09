@@ -42,7 +42,7 @@
 
             // Delete 
             $('.delete').click(function(){
-                var el = this;
+                var th = this;
                 var id = this.id;  
                                                            
                 var dataString = 'id='+ id;
@@ -55,17 +55,15 @@
                     success: function(response){
 
                         // Removing row from HTML Table
-                        $(el).parents('.post-row').css('background','tomato');
-                        $(el).parents('.post-title').css('background','tomato');
+                        $(th).parents('.post-row').css('background-color','tomato');
+                        $(th).parents('.post-title').css('background-color','tomato');
                         
-                        $(el).closest('.post-row').fadeOut(800, function(){ 
+                        $(th).closest('.post-row').fadeOut(800, function(){ 
                             $(this).remove();
                         });
                     }
                 });
-
             });
-
         });
     </script>
     
@@ -98,36 +96,5 @@
             });
         });
     </script>
-
-    <script>
-
-        //        $( document ).ready(function() {
-        //            $('.post-options').hide();
-        //        });
-        //
-        //        var rowid; 
-        //
-        //        $('.post-row').hover(function(){             
-        //            rowid = this.id;  
-        //            //alert(rowid);
-        //        
-        //            if($('.post-options').css('display') == 'none')
-        //            {
-        //                $(".a" + rowid).show();
-        //                //alert("1");
-        //            }
-        //            
-        //            if($('.post-options').css('display') == 'block')
-        //            {
-        //                $(".a" + rowid).hide(); 
-        //                alert("2");
-        //            }
-        //        });
-
-    </script>
-
-
-
-
 
 </html>

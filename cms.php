@@ -7,16 +7,19 @@
         <link rel="stylesheet" type="text/css" href="stylesheet.css">
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
+        
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
 
     </head>
     <body>     
         <div id="side-nav">
             <div class="side-nav-link ajaxTrigger active" load="cms-posts.php">
-                <a>Posts</a>            
+                <a class="nav-text">Posts</a> 
+                <i class="fas fa-edit nav-icon"></i>
             </div>
             <div class="side-nav-link ajaxTrigger" load="settings.php">
-                <a>Settings</a>            
+                <a class="nav-text">Settings</a>
+                <i class="fas fa-cog nav-icon"></i>
             </div>
 
         </div> 
@@ -41,8 +44,7 @@
 
     <script>
         // Add active class to the current button (highlight it)
-        var header = document.getElementById("side-nav");
-        
+        var header = document.getElementById("side-nav");        
         var btns = header.getElementsByClassName("side-nav-link");
         
         for (var i = 0; i < btns.length; i++) {
@@ -52,6 +54,12 @@
                 this.className += " active";
             });
         }
+    </script>
+    
+    <script>
+        
+        
+        
     </script>
 
 </html>

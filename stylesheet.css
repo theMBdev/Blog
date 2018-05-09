@@ -6,8 +6,7 @@
 .nav-bar {
     height: 50px;
     width: auto;
-    background-color: black;
-    padding-right: 20px
+    background-color: black;    
 }
 
 /* creates a button in the nav bar */
@@ -47,7 +46,7 @@
 
 
 body {  
-     font-family: "Arial", "Arabic Transparent";
+    font-family: "Arial", "Arabic Transparent";
     margin: 0px;  
     background: #C0C0C0;
 }
@@ -62,7 +61,7 @@ body {
 .wrapper {    
     padding: 20px;
     background: #f1f1f1;
-    
+
 }
 
 /* Header/Blog Title */
@@ -166,7 +165,7 @@ input[type=submit] {
     border-radius: 4px;
     cursor: pointer;
 }
-    
+
 .submitbutton {
     width: 100%;
     background-color: #4CAF50;
@@ -176,7 +175,7 @@ input[type=submit] {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    }
+}
 
 .submitbutton:hover {
     background-color: #6fbf72;
@@ -213,7 +212,7 @@ input[type=submit]:hover {
 }
 
 .form-background input{
-     width: 100%;
+    width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -247,7 +246,7 @@ h2 {
     padding: 15px;
     color: white;         
     border-left: 5px solid transparent;
-    
+
 }
 
 .active, .side-nav-link:hover {
@@ -255,17 +254,17 @@ h2 {
     color: white;
     border-left: solid 5px;
     border-color: #00D568; 
-    
+
 }
 
 /*
 .side-nav-link:hover {
-    background-color: #2F2F2F;    
+background-color: #2F2F2F;    
 }
 */
 
 .side-nav-link a {
-    
+
 }
 
 .wrapper-main {
@@ -275,6 +274,7 @@ h2 {
 }
 
 .settings-section {
+    width: 100%;
     background-color: white;
     height: 200px;
     padding: 0 10px 10px;
@@ -286,7 +286,7 @@ h2 {
 }
 
 .section-heading {
-    
+
 }
 
 .section-body {    
@@ -303,7 +303,7 @@ h2 {
 }
 
 .section-left {
-    
+
     width: 250px;
     height: 100%;
     float: left;
@@ -323,7 +323,7 @@ h2 {
     width: 200px;
     height: 100px;
     max-width: 300px;    
-    
+
 }
 
 .button-primary {
@@ -371,9 +371,16 @@ h2 {
     box-sizing: border-box;    
     max-width: 100%;
     min-width: 100%;     
-    
+
 }
 
+.nav-text {
+        display: block; 
+    }
+    
+    .nav-icon {
+        display: none;
+    }
 
 
 /* cms-posts */
@@ -394,17 +401,17 @@ h2 {
     background-color: white;
     width: 400px;
     height: 30px;    
-    padding-top: 5px;
+    padding-top: 5px;    
 }
 
 /*CHANGE a tags to one section CHANGE */
 
 .edit {
- color: #6499BE;
+    color: #6499BE;
 }
 
 .edit:hover{
- text-decoration: underline;
+    text-decoration: underline;
 }
 
 .post-title a {
@@ -416,7 +423,7 @@ h2 {
 }
 
 .post-options { 
-    
+
 }
 
 a {
@@ -459,8 +466,8 @@ a {
 #snackbarsuccess.show {
     visibility: visible; /* Show the snackbar */
 
-/* Add animation: Take 0.5 seconds to fade in and out the snackbar. 
-However, delay the fade out process for 2.5 seconds */
+    /* Add animation: Take 0.5 seconds to fade in and out the snackbar. 
+    However, delay the fade out process for 2.5 seconds */
     -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
     animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
@@ -494,10 +501,57 @@ However, delay the fade out process for 2.5 seconds */
         width: 100%;
         padding: 0;
     }
-    
+
     .card-post { 
         border-bottom-right-radius: 0px;
         border-top-right-radius: 0px;        
     }
+
+    #side-nav {
+        height: 100%;
+        width: 50px;        
+    }
+
+    .side-nav-link {        
+        width: 50px;       
+    }
+
+    .active, .side-nav-link:hover {
+        background-color: #2F2F2F;       
+        color: white;
+        border-left: solid 5px;
+        border-color: #00D568; 
+    }
+
+    .wrapper-main {
+        margin-left: 50px; 
+    }
+
+    .settings-section {
+        width: 100%;        
+        height: 350px;
+       
+    }
+
+    .section-body {    
+        width: 100%;
+        display: inline-block;
+        margin-bottom: 50px;
+    }
+
+    .section-content {
+        height: 50px;
+        padding: 15px;
+    }
+    
+    .nav-text {
+        display: none; 
+    }
+    
+    .nav-icon {
+        display: block;
+    }
+
+
 }
 
