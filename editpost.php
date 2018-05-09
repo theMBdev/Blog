@@ -6,13 +6,13 @@
     </head>
     <body>
 
-        <?php
+        <?php        
 
         $myID = $_GET['id'];
 
         $sql = "SELECT * FROM post WHERE id='".$myID."'";;        
 
-        $result = mysqli_query($conn,$sql);  
+        $result = mysqli_query($mysqli,$sql);  
 
         $row = mysqli_fetch_assoc($result);
 
@@ -22,36 +22,29 @@
         ?>
 
         <?php    
-        if(isset($_POST['save']))        {   
+        if(isset($_POST['save'])) {   
 
             $theid = $_REQUEST["id"];
-
-
 
             $Ptitle=$_POST['title'];
             $Pbody=$_POST['body'];
 
-            echo $Ptitle;
-            echo $Pbody;
-
-            $sql = "UPDATE post ". "SET title='$Ptitle', body='$Pbody'". "WHERE id='$theid'";            
-
-
-            $result = mysqli_query($conn,$sql);        
+            $stmt = $mysqli->prepare("UPDATE post SET title = ?, body= ? WHERE id = ?");
+            $stmt->bind_param("ssi", $_POST['title'], $_POST['body'], $_REQUEST["id"]);
+            $stmt->execute();
+            $stmt->close();
+                   
             header("Location:index.php");
-        }
-        else {
-
-        }
-        ?>    
-
+        }       
+        ?>  
+        
         <div class="center-form">
             <h1>Edit Post</h1>
             <div class="form-background">
                 <form action='editpost.php?id=<?php echo $myID ?>' method="POST">
                     <div class="">
                         <label for="title">Title</label>                        
-                        <input type="text" id="title" name="title" value="<?php echo $Gtitle ?>" placeholder="Post title">
+                        <input type="text" id="title" name="title" value='<?php echo $Gtitle ?>' placeholder="Post title">
                     </div>
 
                     <div class="">
@@ -63,7 +56,6 @@
 
                 </form>
             </div>
-        </div>                
-
+        </div>
     </body>
 </html>

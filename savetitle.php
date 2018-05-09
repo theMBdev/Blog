@@ -4,13 +4,12 @@ include('connection.php');
 
 
 if ($_POST) {
-    
-    $blogtitle = $_POST['title'];
 
-            //needs change. sql injection
-             $sql = "UPDATE blog ". "SET title='$blogtitle'". "WHERE id=1";
-
-            $result = mysqli_query($conn,$sql);    
-
+    $stmt = $mysqli->prepare("UPDATE blog SET title = ? WHERE id = 1");
+    $stmt->bind_param("s", $_POST['title']);
+    $stmt->execute();
+    $stmt->close();
 
 }
+
+?>

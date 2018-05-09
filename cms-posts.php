@@ -14,23 +14,22 @@
         <?php
         $sql = "SELECT id, title, body FROM post ORDER BY id DESC";        
 
-        $result = mysqli_query($conn,$sql);  
+        $result = mysqli_query($mysqli,$sql);  
 
         if (mysqli_num_rows($result) > 0) {
-            while($row = mysqli_fetch_assoc($result)) {
+            while($row = mysqli_fetch_assoc($result)) { ?>
 
-                echo '<div class="post-row" id="row'.$row['id'].'">';                            
-                echo '<div class="post-title">' . $row["title"] . '</div>'; 
+                <div class="post-row" id="row<?php echo $row['id'] ?>">                            
+                <div class="post-title"> <?php echo $row["title"] ?> </div> 
                 
-                echo '<div class="post-options arow'.$row['id'].'">
-                <a href="editpost.php?id='.$row['id'].'">Edit</a>
+                <div class="post-options arow<?php echo $row['id'] ?>">
+                <a href="editpost.php?id=<?php echo $row['id'] ?>">Edit</a>
                 &nbsp;|&nbsp;
-                <a class="delete" id='.$row['id'].'">Delete</a></div>'; 
+                <a class="delete" id="<?php echo $row['id'] ?>">Delete</a></div> 
                 
-                echo "</div>";
-            }            
-        } else {                               
-        }   
+                </div>
+          <?php  }            
+        } 
         ?>  
 
     </body>

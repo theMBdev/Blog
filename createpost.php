@@ -9,18 +9,21 @@
         <?php    
         if(isset($_POST['save']))
         {
-            $sql = "INSERT INTO `post` (`title`, `body`) 
-        VALUES ('".$_POST["title"]."','".$_POST["body"]."')";
 
-            $result = mysqli_query($conn,$sql);        
+            $stmt = $mysqli->prepare("INSERT INTO post (title, body) VALUES (?, ?)");
+            $stmt->bind_param("ss", $_POST['title'], $_POST['body']);
+            $stmt->execute();
+            $stmt->close();
+
+            //$result = mysqli_query($conn,$sql);        
             header("Location:index.php");
         }
         ?>   
-        
+
         <div class="center-form">
-              <h1>New Post</h1>
+            <h1>New Post</h1>
             <div class="form-background">
-                <form action="createnewpost.php" method="POST">
+                <form action="createpost.php" method="POST">
                     <div class="f">
                         <label for="title">Title</label>
                         <input type="text" id="title" name="title" placeholder="Post title">
@@ -32,10 +35,9 @@
                     </div>
 
                     <button class="submitbutton" type="submit" name="save">Post</button>
-                    
+
                 </form>
             </div>
-        </div>                
-        
+        </div>        
     </body>
 </html>

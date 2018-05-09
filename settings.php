@@ -3,9 +3,7 @@
 <html>  
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <link rel="stylesheet" type="text/css" href="stylesheet.css">
-
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
         <script>
@@ -35,26 +33,19 @@
                         <?php
                         $sql = "SELECT title FROM blog WHERE id=1";  
 
-                        $result = mysqli_query($conn,$sql);
+                        $result = mysqli_query($mysqli,$sql);
                         $row = mysqli_fetch_assoc($result);
                         $blogtitle = $row["title"];  
 
-
-
-
-                        echo '<span id="blog-title">' .$blogtitle. '</span>'; 
-                        // If user input " will break
-
-
-
-                        echo '<input class="hide-on-load show-blog-title" value=' .'"'.$blogtitle.'"'. ' id="title" name="blog-title"/>';
-                        ?>             
-
+                        echo '<span id="blog-title">' .$blogtitle. '</span>';                         
+                        
+                        //sql problem with input=  dfg" or ""=" ""  
+                        echo '<input class="hide-on-load show-blog-title" value=' .'"'.$blogtitle.'"'. 'id="title" name="blog-title"/>';
+                        ?>   
 
                         <a class="edit" id="edit-blog-title">Edit</a> <!-- style blue on click jquery --> 
 
                         <button id="submit-title" class="hide-on-load show-blog-title  button-primary" type="submit" name="change-blog-title">Save</button>
-
 
                         <button id="cancel-blog-title" class="hide-on-load show-blog-title button-secondary" type="reset" name="cancel">Cancel</button>
                     </div>  
@@ -74,23 +65,18 @@
                             <?php
                             $sql = "SELECT description FROM blog WHERE id=1";  
 
-                            $result = mysqli_query($conn,$sql);
+                            $result = mysqli_query($mysqli,$sql);
                             $row = mysqli_fetch_assoc($result);
                             $blogdescription = $row["description"];  
 
-                            echo '<span id="blog-description">' .$blogdescription. '</span>'; 
-                            // If user input " will break
+                            echo '<span id="blog-description">' .$blogdescription. '</span>';
 
                             echo '<textarea class="hide-on-load show-blog-description descriptiontext" id="description" name="blog-description" rows="10" cols="30" >' .$blogdescription. '</textarea>';
-
                             ?>       
 
-                            <a class="edit" id="edit-blog-description">Edit</a> <!-- style blue on click jquery --> 
-
-
+                            <a class="edit" id="edit-blog-description">Edit</a>
 
                             <button id="submit-description" class="hide-on-load show-blog-description button-primary" type="submit" name="change-blog-description" name="submit-description">Save</button>
-
 
                             <button id="cancel-blog-description" class="hide-on-load show-blog-description button-secondary" type="reset" name="cancel">Cancel</button>
                         </div>  
@@ -111,31 +97,27 @@
                         <?php
                         $sql = "SELECT name FROM user WHERE id=1";  
 
-                        $result = mysqli_query($conn,$sql);
+                        $result = mysqli_query($mysqli,$sql);
                         $row = mysqli_fetch_assoc($result);
                         $name = $row["name"];  
 
                         echo '<span id="blog-name">' .$name. '</span>'; 
-                        // If user input " will break
+                        
                         echo '<input class="hide-on-load show-name" id="name" value=' .'"'.$name.'"'. 'name="name"/> ';
                         ?>             
 
-                        <a class="edit" id="edit-name">Edit</a> <!-- style blue on click jquery --> 
+                        <a class="edit" id="edit-name">Edit</a>
 
-                        <button id="submit-name" class="hide-on-load show-name button-primary" type="submit" name="submit-name">Save</button>                       
-
+                        <button id="submit-name" class="hide-on-load show-name button-primary" type="submit" name="submit-name">Save</button>
 
                         <button id="cancel-name" class="hide-on-load show-name button-secondary" type="reset" name="cancel">Cancel</button>
                     </div>  
 
-
                     <span class="error" style="display:none"> Please Enter Valid Data</span>
                     <span class="success" style="display:none"> Form Submitted Success</span>
-
                 </div>
             </form>                
         </div>
-
     </body>
     <script>
 
@@ -221,12 +203,14 @@
     </script>
 
     <!-- Set the input to be the same as the name -->
+<!--
     <script>    
         $("#edit-name").click(function(){
             var put = $('#blog-name').text()
             $('#name').val(put);
         });   
     </script>
+-->
 
     <script>        
         $(function() {

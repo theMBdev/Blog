@@ -4,14 +4,13 @@ include('connection.php');
 
 
 if ($_POST) {
-    
-     $description=$_POST['description'];
 
-            //needs change. sql injection
-            $sql = "UPDATE blog ". "SET description='$description'". "WHERE id=1";
+    $stmt = $mysqli->prepare("UPDATE blog SET description = ? WHERE id = 1");
+    $stmt->bind_param("s", $_POST['description']);
+    $stmt->execute();
+    $stmt->close();
 
-            $result = mysqli_query($conn,$sql);              
 }
-           
+
 ?>
 
