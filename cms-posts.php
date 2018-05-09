@@ -19,16 +19,16 @@
         if (mysqli_num_rows($result) > 0) {
             while($row = mysqli_fetch_assoc($result)) { ?>
 
-                <div class="post-row" id="row<?php echo $row['id'] ?>">                            
-                <div class="post-title"> <?php echo $row["title"] ?> </div> 
-                
-                <div class="post-options arow<?php echo $row['id'] ?>">
+        <div class="post-row">                            
+            <div class="post-title"> <?php echo $row["title"] ?> </div>
+            <div class="post-options">
                 <a href="editpost.php?id=<?php echo $row['id'] ?>">Edit</a>
                 &nbsp;|&nbsp;
-                <a class="delete" id="<?php echo $row['id'] ?>">Delete</a></div> 
-                
-                </div>
-          <?php  }            
+                <a class="delete" id="<?php echo $row['id'] ?>">Delete</a>
+            </div> 
+
+        </div>
+        <?php  }            
         } 
         ?>  
 
@@ -43,7 +43,7 @@
             $('.delete').click(function(){
                 var th = this;
                 var id = this.id;  
-                                                           
+
                 var dataString = 'id='+ id;
 
                 // AJAX Request
@@ -56,7 +56,7 @@
                         // Removing row from HTML Table
                         $(th).parents('.post-row').css('background-color','tomato');
                         $(th).parents('.post-title').css('background-color','tomato');
-                        
+
                         $(th).closest('.post-row').fadeOut(800, function(){ 
                             $(this).remove();
                         });
@@ -65,9 +65,9 @@
             });
         });
     </script>
-    
-    
-     <script>        
+
+
+    <script>        
         $(function() {
             $("#submit-name").click(function() {
                 var name = $("#name").val();            

@@ -17,7 +17,6 @@
     </head>
     <body>
 
-
         <div id="snackbarsuccess"></div>
 
         <div class="settings-section">
@@ -51,9 +50,6 @@
                     </div>  
                 </div>
             </form>
-
-
-
 
             <div class="settings-body">
                 <form action="settings.php" method="POST">
