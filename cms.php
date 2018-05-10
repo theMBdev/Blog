@@ -1,28 +1,6 @@
-<?php include('connection.php'); ?>
-<?php 
-session_start();
-
-if (array_key_exists("id", $_COOKIE)) {
-
-    $_SESSION['id'] = $_COOKIE['id']; 
-}
-
-if (array_key_exists("id", $_SESSION)) {
-
-    echo $_SESSION['id'];
-    echo "<p>Logged In! <a href='signin.php?logout=1'>Log out</a></p>";                      
-//    $query = "SELECT title FROM `blog` WHERE id = ".mysqli_real_escape_string($mysqli, $_SESSION['id'])." LIMIT 1";
-//
-//    $row = mysqli_fetch_array(mysqli_query($mysqli, $query));
-//
-//    $title = $row['title'];
-
-} else {
-
-    header("Location: signin.php");
-
-}
-
+<?php
+include('connection.php');
+include('sessioncheck.php');
 ?>
 
 <html>  
@@ -48,9 +26,15 @@ if (array_key_exists("id", $_SESSION)) {
                 <a class="nav-text">Posts</a> 
                 <i class="fas fa-edit nav-icon"></i>
             </div>
+            
             <div class="side-nav-link ajaxTrigger" load="settings.php">
                 <a class="nav-text">Settings</a>
                 <i class="fas fa-cog nav-icon"></i>
+            </div>
+            
+            <div class="side-nav-link" onclick="window.location = 'signin.php?logout=1'">
+                <a class="nav-text">Logout</a> 
+                <div><i class="fas fa-sign-out-alt nav-icon"></i></div>
             </div>
 
         </div> 

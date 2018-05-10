@@ -1,28 +1,6 @@
-<?php include('connection.php'); ?> 
-<?php 
-session_start();
-
-if (array_key_exists("id", $_COOKIE)) {
-
-    $_SESSION['id'] = $_COOKIE['id']; 
-}
-
-if (array_key_exists("id", $_SESSION)) {
-
-    echo $_SESSION['id'];
-    echo "<p>Logged In! <a href='signin.php?logout=1'>Log out</a></p>";                      
-//    $query = "SELECT title FROM `blog` WHERE id = ".mysqli_real_escape_string($mysqli, $_SESSION['id'])." LIMIT 1";
-//
-//    $row = mysqli_fetch_array(mysqli_query($mysqli, $query));
-//
-//    $title = $row['title'];
-
-} else {
-
-    header("Location: signin.php");
-
-}
-
+<?php
+include('connection.php');
+include('sessioncheck.php');
 ?>
 
 <html>  
@@ -37,7 +15,7 @@ if (array_key_exists("id", $_SESSION)) {
 
     <body> 
         <?php
-        $sql = "SELECT id, title, body FROM post ORDER BY id DESC";        
+        $sql = "SELECT * FROM posts WHERE userid=".$_SESSION['id']." ORDER BY id DESC";        
 
         $result = mysqli_query($mysqli,$sql);  
 
@@ -45,7 +23,7 @@ if (array_key_exists("id", $_SESSION)) {
             while($row = mysqli_fetch_assoc($result)) { ?>
 
         <div class="post-row">                            
-            <div class="post-title"> <?php echo $row["title"] ?> </div>
+            <div class="post-title"> <?php echo $row["title"] ?> <div style="float: right;"><?php echo $row["posted"] ?></div> </div> 
             <div class="post-options">
                 <a href="editpost.php?id=<?php echo $row['id'] ?>">Edit</a>
                 &nbsp;|&nbsp;

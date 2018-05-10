@@ -1,28 +1,6 @@
-<?php include('connection.php'); ?> 
-<?php 
-session_start();
-
-if (array_key_exists("id", $_COOKIE)) {
-
-    $_SESSION['id'] = $_COOKIE['id']; 
-}
-
-if (array_key_exists("id", $_SESSION)) {
-
-    echo $_SESSION['id'];
-    echo "<p>Logged In! <a href='signin.php?logout=1'>Log out</a></p>";                      
-//    $query = "SELECT title FROM `blog` WHERE id = ".mysqli_real_escape_string($mysqli, $_SESSION['id'])." LIMIT 1";
-//
-//    $row = mysqli_fetch_array(mysqli_query($mysqli, $query));
-//
-//    $title = $row['title'];
-
-} else {
-
-    header("Location: signin.php");
-
-}
-
+<?php
+include('connection.php');
+include('sessioncheck.php');
 ?>
 
 <html>
@@ -66,7 +44,8 @@ if (array_key_exists("id", $_SESSION)) {
 
                         <div class="card-post">
                             <h2> <?php echo $row["title"]; ?> </h2>
-                            <p> <?php echo $row["body"] ?> </p>
+                           <p> <?php echo str_replace('  ', ' &nbsp;', nl2br(htmlentities($row["body"]))); ?> </p>
+                                                       
                         </div>
 
                         <?php }            

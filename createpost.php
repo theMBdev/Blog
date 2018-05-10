@@ -1,29 +1,7 @@
-<?php include('connection.php'); ?> 
-<?php 
-session_start();
-
-if (array_key_exists("id", $_COOKIE)) {
-
-    $_SESSION['id'] = $_COOKIE['id']; 
-}
-
-if (array_key_exists("id", $_SESSION)) {
-
-    echo $_SESSION['id'];
-    echo "<p>Logged In! <a href='signin.php?logout=1'>Log out</a></p>";                      
-//    $query = "SELECT title FROM `blog` WHERE id = ".mysqli_real_escape_string($mysqli, $_SESSION['id'])." LIMIT 1";
-//
-//    $row = mysqli_fetch_array(mysqli_query($mysqli, $query));
-//
-//    $title = $row['title'];
-
-} else {
-
-    header("Location: signin.php");
-
-}
+<?php
+include('connection.php');
+include('sessioncheck.php');
 ?>
-
 <html>  
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -34,11 +12,11 @@ if (array_key_exists("id", $_SESSION)) {
         <?php    
         if(isset($_POST['save']))
         {
-            $stmt = $mysqli->prepare("INSERT INTO posts (title, body, userid) VALUES (?, ?, ?)");
-            $stmt->bind_param("ssi", $_POST['title'], $_POST['body'], $_SESSION['id']);
+            $stmt = $mysqli->prepare("INSERT INTO posts (title, body, posted, userid) VALUES (?, ?, ?, ?)");
+            $stmt->bind_param("sssi", $_POST['title'], $_POST['body'], date("Y/m/d"), $_SESSION['id']);
             $stmt->execute();
             $stmt->close();
-                  
+
             header("Location:index.php");
         }
         ?>   
@@ -54,7 +32,7 @@ if (array_key_exists("id", $_SESSION)) {
 
                     <div class="">
                         <label for="body">Post</label>
-                        <textarea class="textarea-post" id="post-input" rows="10" cols="70" id="body" name="body" placeholder="Post Content"></textarea> 
+                        <textarea class="textarea-post" id="post-input" rows="10" cols="70" id="body" name="body" placeholder="Post Content"></textarea>
                     </div>
 
                     <button class="submitbutton" type="submit" name="save">Post</button>

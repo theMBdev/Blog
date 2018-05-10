@@ -1,28 +1,6 @@
-<?php include('connection.php'); ?> 
-<?php 
-session_start();
-
-if (array_key_exists("id", $_COOKIE)) {
-
-    $_SESSION['id'] = $_COOKIE['id']; 
-}
-
-if (array_key_exists("id", $_SESSION)) {
-
-    echo $_SESSION['id'];
-    echo "<p>Logged In! <a href='signin.php?logout=1'>Log out</a></p>";                      
-//    $query = "SELECT title FROM `blog` WHERE id = ".mysqli_real_escape_string($mysqli, $_SESSION['id'])." LIMIT 1";
-//
-//    $row = mysqli_fetch_array(mysqli_query($mysqli, $query));
-//
-//    $title = $row['title'];
-
-} else {
-
-    header("Location: signin.php");
-
-}
-
+<?php
+include('connection.php');
+include('sessioncheck.php');
 ?>
 
 <html>  
@@ -36,7 +14,7 @@ if (array_key_exists("id", $_SESSION)) {
 
         $myID = $_GET['id'];
 
-        $sql = "SELECT * FROM post WHERE id='".$myID."'";;        
+        $sql = "SELECT * FROM posts WHERE id='".$myID."'";;        
 
         $result = mysqli_query($mysqli,$sql);  
 
@@ -55,7 +33,7 @@ if (array_key_exists("id", $_SESSION)) {
             $Ptitle=$_POST['title'];
             $Pbody=$_POST['body'];
 
-            $stmt = $mysqli->prepare("UPDATE post SET title = ?, body= ? WHERE id = ?");
+            $stmt = $mysqli->prepare("UPDATE posts SET title = ?, body= ? WHERE id = ?");
             $stmt->bind_param("ssi", $_POST['title'], $_POST['body'], $_REQUEST["id"]);
             $stmt->execute();
             $stmt->close();

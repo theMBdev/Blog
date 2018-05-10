@@ -1,6 +1,7 @@
-<?php include('connection.php'); ?> 
-
 <?php
+include('connection.php');
+include('sessioncheck.php');
+?>
 
 if ($_POST) {
 
