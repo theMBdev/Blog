@@ -44,7 +44,7 @@ if (array_key_exists("id", $_SESSION)) {
                 <div class="header">
 
                     <?php  
-                    $sql = "SELECT title FROM blog WHERE id=1";
+                    $sql = "SELECT title FROM blog WHERE userid=".$_SESSION['id']."";
                     $result = mysqli_query($mysqli,$sql);
 
                     $row = mysqli_fetch_assoc($result) ;                   
@@ -83,7 +83,7 @@ if (array_key_exists("id", $_SESSION)) {
                         <div class="card">
                             <h2>About Me</h2>
                             <?php 
-                            $sql = "SELECT name FROM users WHERE id=1";
+                            $sql = "SELECT name FROM users WHERE id=".$_SESSION['id']."";
 
                             $result = mysqli_query($mysqli,$sql);
 
@@ -95,7 +95,7 @@ if (array_key_exists("id", $_SESSION)) {
                         <div class="card">
                             <h3>Blog Description</h3>
                             <?php 
-                            $sql = "SELECT description FROM blog WHERE id=1";  
+                            $sql = "SELECT description FROM blog WHERE userid=".$_SESSION['id']."";  
 
                             $result = mysqli_query($mysqli,$sql);
 

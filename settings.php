@@ -1,4 +1,29 @@
 <?php include('connection.php'); ?> 
+<?php 
+session_start();
+
+if (array_key_exists("id", $_COOKIE)) {
+
+    $_SESSION['id'] = $_COOKIE['id']; 
+}
+
+if (array_key_exists("id", $_SESSION)) {
+
+    echo $_SESSION['id'];
+    echo "<p>Logged In! <a href='signin.php?logout=1'>Log out</a></p>";                      
+//    $query = "SELECT title FROM `blog` WHERE id = ".mysqli_real_escape_string($mysqli, $_SESSION['id'])." LIMIT 1";
+//
+//    $row = mysqli_fetch_array(mysqli_query($mysqli, $query));
+//
+//    $title = $row['title'];
+
+} else {
+
+    header("Location: signin.php");
+
+}
+
+?>
 
 <html>  
     <head>
@@ -29,8 +54,9 @@
                             <label for="blog-title">Title:</label>
                         </div>
 
-                        <?php
-                        $sql = "SELECT title FROM blog WHERE id=1";  
+                        <?php                        
+                        
+                        $sql = "SELECT title FROM blog WHERE userid=".$_SESSION['id']."";  
 
                         $result = mysqli_query($mysqli,$sql);
                         $row = mysqli_fetch_assoc($result);
@@ -59,7 +85,7 @@
                                 <label for="blog-description">Description:</label>
                             </div>
                             <?php
-                            $sql = "SELECT description FROM blog WHERE id=1";  
+                            $sql = "SELECT description FROM blog WHERE userid=".$_SESSION['id']."";  
 
                             $result = mysqli_query($mysqli,$sql);
                             $row = mysqli_fetch_assoc($result);
@@ -91,7 +117,7 @@
                             <label for="name">Name:</label>
                         </div>
                         <?php
-                        $sql = "SELECT name FROM user WHERE id=1";  
+                        $sql = "SELECT name FROM users WHERE id=".$_SESSION['id']."";  
 
                         $result = mysqli_query($mysqli,$sql);
                         $row = mysqli_fetch_assoc($result);
@@ -211,7 +237,7 @@
     <script>        
         $(function() {
             $("#submit-title").click(function() {
-                var title = $("#title").val();            
+                var title = $("#title").val();                  
                 var dataString = 'title='+ title;
 
                 if(title=='')
