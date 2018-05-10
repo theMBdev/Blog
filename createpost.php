@@ -1,4 +1,29 @@
 <?php include('connection.php'); ?> 
+<?php 
+session_start();
+
+if (array_key_exists("id", $_COOKIE)) {
+
+    $_SESSION['id'] = $_COOKIE['id']; 
+}
+
+if (array_key_exists("id", $_SESSION)) {
+
+    echo $_SESSION['id'];
+    echo "<p>Logged In! <a href='signin.php?logout=1'>Log out</a></p>";                      
+//    $query = "SELECT title FROM `blog` WHERE id = ".mysqli_real_escape_string($mysqli, $_SESSION['id'])." LIMIT 1";
+//
+//    $row = mysqli_fetch_array(mysqli_query($mysqli, $query));
+//
+//    $title = $row['title'];
+
+} else {
+
+    header("Location: signin.php");
+
+}
+?>
+
 <html>  
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,13 +34,11 @@
         <?php    
         if(isset($_POST['save']))
         {
-
-            $stmt = $mysqli->prepare("INSERT INTO post (title, body) VALUES (?, ?)");
-            $stmt->bind_param("ss", $_POST['title'], $_POST['body']);
+            $stmt = $mysqli->prepare("INSERT INTO posts (title, body, userid) VALUES (?, ?, ?)");
+            $stmt->bind_param("ssi", $_POST['title'], $_POST['body'], $_SESSION['id']);
             $stmt->execute();
             $stmt->close();
-
-            //$result = mysqli_query($conn,$sql);        
+                  
             header("Location:index.php");
         }
         ?>   

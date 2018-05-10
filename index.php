@@ -1,4 +1,29 @@
 <?php include('connection.php'); ?> 
+<?php 
+session_start();
+
+if (array_key_exists("id", $_COOKIE)) {
+
+    $_SESSION['id'] = $_COOKIE['id']; 
+}
+
+if (array_key_exists("id", $_SESSION)) {
+
+    echo $_SESSION['id'];
+    echo "<p>Logged In! <a href='signin.php?logout=1'>Log out</a></p>";                      
+//    $query = "SELECT title FROM `blog` WHERE id = ".mysqli_real_escape_string($mysqli, $_SESSION['id'])." LIMIT 1";
+//
+//    $row = mysqli_fetch_array(mysqli_query($mysqli, $query));
+//
+//    $title = $row['title'];
+
+} else {
+
+    header("Location: signin.php");
+
+}
+
+?>
 
 <html>
     <head>
@@ -33,7 +58,7 @@
                 <div class="row">
                     <div class="leftcolumn">
                         <?php  
-                        $sql = "SELECT id, title, body FROM post ORDER BY id DESC";        
+                        $sql = "SELECT id, title, body FROM posts WHERE userid=".$_SESSION['id']." ORDER BY id DESC";        
                         $result = mysqli_query($mysqli,$sql);  
 
                         if (mysqli_num_rows($result) > 0) {
@@ -58,7 +83,7 @@
                         <div class="card">
                             <h2>About Me</h2>
                             <?php 
-                            $sql = "SELECT name FROM user WHERE id=1";
+                            $sql = "SELECT name FROM users WHERE id=1";
 
                             $result = mysqli_query($mysqli,$sql);
 
