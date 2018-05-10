@@ -71,10 +71,4 @@ include('sessioncheck.php');
         }
     </script>
 
-    <script>
-
-
-
-    </script>
-
 </html>

@@ -7,7 +7,7 @@ if ($_POST) {
 
     $id=$_POST['id'];
 
-    $sql = "DELETE FROM post WHERE id='".$id."'";
+    $sql = "DELETE FROM posts WHERE id='".$id."'";
 
     $result = mysqli_query($mysqli,$sql);  
 

@@ -1,4 +1,9 @@
 <?php
+include('connection.php');
+include('sessioncheck.php');
+?>
+
+<?php
 
 
 if ($_POST) {
