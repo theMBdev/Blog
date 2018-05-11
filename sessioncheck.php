@@ -1,6 +1,6 @@
 <?php
-
 session_start();
+
 
 if (array_key_exists("id", $_COOKIE)) {
 
@@ -9,12 +9,12 @@ if (array_key_exists("id", $_COOKIE)) {
 
 if (array_key_exists("id", $_SESSION)) {
 
-//    echo $_SESSION['id'];
-//    echo "<p>Logged In! <a href='signin.php?logout=1'>Log out</a></p>";                     
+} else { ?>
 
-} else {
+<script>
+    window.location.href = "signin.php";
+</script>
 
-    header("Location: signin.php");
-
+<?php
 }
 ?>

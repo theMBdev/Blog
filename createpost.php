@@ -17,6 +17,14 @@ include('sessioncheck.php');
             $stmt->execute();
             $stmt->close();
 
+        ?>
+
+        <script>
+            window.location.href = "index.php";
+        </script>
+
+        <?php
+
             header("Location:index.php");
         }
         ?>   

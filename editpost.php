@@ -37,11 +37,19 @@ include('sessioncheck.php');
             $stmt->bind_param("ssi", $_POST['title'], $_POST['body'], $_REQUEST["id"]);
             $stmt->execute();
             $stmt->close();
-                   
+
+        ?>
+
+        <script>
+            window.location.href = "index.php";
+        </script>
+
+        <?php
+
             header("Location:index.php");
         }       
         ?>  
-        
+
         <div class="center-form">
             <h1>Edit Post</h1>
             <div class="form-background">

@@ -28,8 +28,7 @@ include('sessioncheck.php');
                     $row = mysqli_fetch_assoc($result) ;                   
                     echo "<h2>" . $row["title"] ."</h2>";
 
-                    ?>            
-
+                    ?>
 
                 </div>
 

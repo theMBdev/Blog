@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 
 $error = "";
@@ -11,10 +10,25 @@ if (array_key_exists("logout", $_GET)) {
     $_COOKIE["id"] = "";  
 
     session_destroy();
+?>
+
+<script>
+    window.location.href = "signin.php";
+</script>
+
+<?php
 
     header("Location: signin.php");
 
 } else if ((array_key_exists("id", $_SESSION) AND $_SESSION['id']) OR (array_key_exists("id", $_COOKIE) AND $_COOKIE['id'])) {
+
+?>
+
+<script>
+    window.location.href = "index.php";
+</script>
+
+<?php
 
     header("Location: index.php");
 }
@@ -81,6 +95,15 @@ if(array_key_exists('submit', $_POST)) {
 
                     //echo  "Sign up success";
 
+
+?>
+
+<script>
+    window.location.href = "index.php";
+</script>
+
+<?php
+
                     header("location: index.php");
 
                 }            
@@ -105,6 +128,15 @@ if(array_key_exists('submit', $_POST)) {
 
                         setcookie("id", $row['id'], time() + 60*60*24*365);
                     }
+
+?>
+
+<script>
+    window.location.href = "index.php";
+</script>
+
+<?php
+
                     header("location: index.php");
                 } else {
                     $error = "That email/password combo could not be found";
