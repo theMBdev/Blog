@@ -16,7 +16,7 @@
     color: white;     
     float: right;    
     padding: 0px 25px 0px 25px;
-    text-decoration: none;
+    text-decoration: none;    
 }
 
 .nav-link-grey  { 
@@ -29,7 +29,8 @@
 }
 
 .nav-link-50 {
-    width: 50%;
+    width: 50%; 
+    text-align: center;
 }
 
 .nav-link:hover {     
