@@ -19,22 +19,22 @@ include('sessioncheck.php');
 
             <div class="side-nav-link" onclick="window.location = 'index.php'">
                 <a class="nav-text">Home</a> 
-                <div><i class="fas fa-home nav-icon"></i></div>
+                <div><i id="home-icon"></i></div>
             </div>
 
             <div class="side-nav-link ajaxTrigger active" load="cms-posts.php">
                 <a class="nav-text">Posts</a> 
-                <i class="fas fa-edit nav-icon"></i>
+                <div><i id="edit-icon"></i></div>
             </div>
             
             <div class="side-nav-link ajaxTrigger" load="settings.php">
                 <a class="nav-text">Settings</a>
-                <i class="fas fa-cog nav-icon"></i>
+                <div><i id="cog-icon"></i></div>
             </div>
             
             <div class="side-nav-link" onclick="window.location = 'signin.php?logout=1'">
                 <a class="nav-text">Logout</a> 
-                <div><i class="fas fa-sign-out-alt nav-icon"></i></div>
+                <div><i id="sign-out-icon"></i></div>
             </div>
 
         </div> 
@@ -46,6 +46,26 @@ include('sessioncheck.php');
             </div>
         </div>
     </body>
+
+    <script>
+        $(function () {
+            $(window).bind("resize", function () {                
+                if ($(this).width() < 801) {
+                    $("#home-icon").addClass('fas fa-home');  
+                    $("#edit-icon").addClass('fas fa-edit');  
+                    $("#cog-icon").addClass('fas fa-cog');  
+                    $("#sign-out-icon").addClass('fas fa-sign-out-alt');                 
+                } else {
+                    $("#home-icon").removeClass('fas fa-home');
+                    $("#edit-icon").removeClass('fas fa-edit');
+                    $("#cog-icon").removeClass('fas fa-cog');
+                    $("#sign-out-icon").removeClass('fas fa-sign-out-alt'); 
+                }
+            }).trigger('resize');
+        });
+    </script>        
+    
+    
     <script>
         $(document).ready(function(){     
             $("#ajaxContent").load("http://localhost/blog/cms-posts.php");
@@ -55,7 +75,6 @@ include('sessioncheck.php');
             });
         });
     </script>
-
 
     <script>
         // Add active class to the current button (highlight it)
