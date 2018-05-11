@@ -33,7 +33,7 @@ include('sessioncheck.php');
                         </div>
 
                         <?php                        
-                        
+
                         $sql = "SELECT title FROM blog WHERE userid=".$_SESSION['id']."";  
 
                         $result = mysqli_query($mysqli,$sql);
@@ -41,16 +41,17 @@ include('sessioncheck.php');
                         $blogtitle = $row["title"];  
 
                         echo '<span id="blog-title">' .$blogtitle. '</span>';                         
-                        
+
                         //sql problem with input=  dfg" or ""=" ""  
                         echo '<input class="hide-on-load show-blog-title" value=' .'"'.$blogtitle.'"'. 'id="title" name="blog-title"/>';
                         ?>   
 
                         <a class="edit" id="edit-blog-title">Edit</a> <!-- style blue on click jquery --> 
 
-                        <button id="submit-title" class="hide-on-load show-blog-title  button-primary" type="submit" name="change-blog-title">Save</button>
-
-                        <button id="cancel-blog-title" class="hide-on-load show-blog-title button-secondary" type="reset" name="cancel">Cancel</button>
+                        <div class="btn-group">
+                            <button id="submit-title" class="hide-on-load show-blog-title  button-primary" type="submit" name="change-blog-title">Save</button>
+                            <button id="cancel-blog-title" class="hide-on-load show-blog-title button-secondary" type="reset" name="cancel">Cancel</button>
+                        </div>
                     </div>  
                 </div>
             </form>
@@ -76,9 +77,10 @@ include('sessioncheck.php');
 
                             <a class="edit" id="edit-blog-description">Edit</a>
 
-                            <button id="submit-description" class="hide-on-load show-blog-description button-primary" type="submit" name="change-blog-description" name="submit-description">Save</button>
-
-                            <button id="cancel-blog-description" class="hide-on-load show-blog-description button-secondary" type="reset" name="cancel">Cancel</button>
+                            <div class="btn-group">
+                                <button id="submit-description" class="hide-on-load show-blog-description button-primary" type="submit" name="change-blog-description" name="submit-description">Save</button>
+                                <button id="cancel-blog-description" class="hide-on-load show-blog-description button-secondary" type="reset" name="cancel">Cancel</button>
+                            </div>
                         </div>  
                     </div>
                 </form>
@@ -102,15 +104,17 @@ include('sessioncheck.php');
                         $name = $row["name"];  
 
                         echo '<span id="blog-name">' .$name. '</span>'; 
-                        
+
                         echo '<input class="hide-on-load show-name" id="name" value=' .'"'.$name.'"'. 'name="name"/> ';
                         ?>             
 
                         <a class="edit" id="edit-name">Edit</a>
 
-                        <button id="submit-name" class="hide-on-load show-name button-primary" type="submit" name="submit-name">Save</button>
+                        <div class="btn-group">
+                            <button id="submit-name" class="hide-on-load show-name button-primary" type="submit" name="submit-name">Save</button>
+                            <button id="cancel-name" class="hide-on-load show-name button-secondary" type="reset" name="cancel">Cancel</button>
+                        </div>
 
-                        <button id="cancel-name" class="hide-on-load show-name button-secondary" type="reset" name="cancel">Cancel</button>
                     </div>  
 
                     <span class="error" style="display:none"> Please Enter Valid Data</span>
@@ -203,13 +207,13 @@ include('sessioncheck.php');
     </script>
 
     <!-- Set the input to be the same as the name -->
-<!--
-    <script>    
-        $("#edit-name").click(function(){
-            var put = $('#blog-name').text()
-            $('#name').val(put);
-        });   
-    </script>
+    <!--
+<script>    
+$("#edit-name").click(function(){
+var put = $('#blog-name').text()
+$('#name').val(put);
+});   
+</script>
 -->
 
     <script>        

@@ -157,41 +157,20 @@ if(array_key_exists('submit', $_POST)) {
         <!-- Required meta tags always come first -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">        
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>        
+        <link rel="stylesheet" type="text/css" href="stylesheet.css">
 
         <style>
-            .container {
-                text-align: center;
-                width: 400px;    
-            }
-
-            #homePageContainer {    
-                margin-top: 150px;
-            }
-
-            #containerLoggedInPage {
-                margin-top: 60px;
-            }
 
             html {
                 background: url(splashimage.jpg) no-repeat center center fixed;
-                background-size: cover;
+                background-size: cover;    
             }
 
             body {
-                background: none;
-                color: white;
+                background: none;  
             }
-
-            #logInForm {
-                display: none;
-            }
-
-            .toggleForms {
-                font-weight: bold;
-            }
-
+            
         </style>
 
     </head>
@@ -213,12 +192,9 @@ if(array_key_exists('submit', $_POST)) {
                 <p>interested Sign up now</p>
 
                 <div class="form-group">
-
                     <input type="text" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email">
-
                 </div>
                 <div class="form-group">
-
                     <input type="password" class="form-control" name="password" placeholder="Password">
                 </div>
                 <div class="form-check">
@@ -229,7 +205,7 @@ if(array_key_exists('submit', $_POST)) {
                     <input type="hidden" name="signUp" value="1">
                 </div>        
 
-                <button type="submit" name="submit" class="btn btn-success">Sign Up</button>
+                <button type="submit" name="submit" class="button-primary">Sign Up</button>
 
                 <p><a class="toggleForms">Log in</a></p>
 
@@ -242,22 +218,21 @@ if(array_key_exists('submit', $_POST)) {
                 <p>Log in using your username and password</p>
 
                 <div class="form-group">
-
                     <input type="text" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email log in">
-
                 </div>
                 <div class="form-group">
-
                     <input type="password" class="form-control" name="password" placeholder="Password log in">
                 </div>
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input" name="stayLoggedIn" >
-                    <label class="form-check-label" for="exampleCheck1">Stay logged in</label>
+                    <label class="form-check-label" for="stayLoggedIn">Stay logged in</label>
                     <!--added -->
                     <input type="hidden" name="signUp" value="0">
+
+
                 </div>        
 
-                <button type="submit" name="submit" class="btn btn-success">Log In</button>
+                <button type="submit" name="submit" class="button-primary">Log In</button>
 
                 <p><a class="toggleForms">Sign Up</a></p>
 
@@ -276,11 +251,7 @@ if(array_key_exists('submit', $_POST)) {
             });
         </script>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
-
     </body>
-
 
 </html>
 

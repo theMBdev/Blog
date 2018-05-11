@@ -138,10 +138,12 @@ h2 {
     margin-top: 20px;
 }
 
+/*
 .container {
-    width: 500px;
-    clear: both;
+width: 500px;
+clear: both;
 }
+*/
 
 .container input {
     width: 100%;
@@ -150,6 +152,16 @@ h2 {
 
 
 .container input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.container input[type=password], select {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -272,6 +284,10 @@ background-color: #2F2F2F;
 
 }
 
+.btn-group { 
+    display: inline-block;
+}
+
 .wrapper-main {
     margin-left: 200px;
     background-color: #f1f1f1;
@@ -303,7 +319,7 @@ background-color: #2F2F2F;
 }
 
 .section-content {
-    height: 50px;
+    height: 55px;
     padding: 15px;
 }
 
@@ -380,8 +396,8 @@ background-color: #2F2F2F;
 }
 
 .nav-text {
-        display: block; 
-    }
+    display: block; 
+}
 
 /* cms-posts */
 
@@ -437,9 +453,54 @@ a {
     text-decoration: underline;
 }
 
+/* signin page */
+.container {
+    text-align: center;
+    width: 400px; 
+    margin: auto;
+    width: 50%;    
+    padding: 10px;
+}
+
+#homePageContainer {    
+    margin-top: 150px;
+    color: white;
+}
+
+#containerLoggedInPage {
+    margin-top: 60px;
+}
+
+.form-check {
+    text-align: center; 
+
+}
+
+.form-check-label {
+
+}
+
+.form-check-input {
+
+}
+
+[type="checkbox"]
+{
+    vertical-align:middle; 
+    float: left;
+}
+
+#logInForm {
+    display: none;
+}
+
+.toggleForms {
+    font-weight: bold;
+}
+
+
 
 /* Alert */
-
 .success {
     background-color: #ddffdd;
     border-left: 6px solid #4CAF50;    
@@ -529,7 +590,7 @@ a {
     .settings-section {
         width: 100%;        
         height: 350px;
-       
+
     }
 
     .section-body {    
@@ -542,7 +603,7 @@ a {
         height: 50px;
         padding: 15px;
     }
-    
+
     .nav-text {
         display: none; 
     }
