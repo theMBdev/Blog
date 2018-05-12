@@ -119,9 +119,19 @@ include('sessioncheck.php');
 
                     <span class="error" style="display:none"> Please Enter Valid Data</span>
                     <span class="success" style="display:none"> Form Submitted Success</span>
+                    
+                     <div class="section-content">
+                        <div class="section-left">
+                            <label for="name">Blog url:</label>
+                        </div>
+                         <div><span>http://mbblog-com.stackstaging.com/browse.php?</span>id=<?php echo $_SESSION['id']; ?> </div>
+                    </div>                   
                 </div>
             </form>                
         </div>
+        
+        
+        
     </body>
     <script>
 
