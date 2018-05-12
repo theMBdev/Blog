@@ -465,9 +465,9 @@ a {
 /* signin page */
 .container {
     text-align: center;
-    width: 400px; 
+    max-width: 400px; 
     margin: auto;
-    width: 50%;    
+    width: 100%;    
     padding: 10px;
 }
 
