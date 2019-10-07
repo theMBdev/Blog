@@ -64,7 +64,7 @@ include('sessioncheck.php');
                         <textarea class="textarea-post" id="post-input" rows="10" cols="70" id="body" name="body"><?php echo $Gbody ?></textarea> 
                     </div>
 
-                    <button class="submitbutton" type="submit" name="save">update</button>
+                    <button class="submitbutton" type="submit" name="save">Update</button>
 
                 </form>
             </div>

@@ -124,7 +124,7 @@ include('sessioncheck.php');
                         <div class="section-left">
                             <label for="name">Blog url:</label>
                         </div>
-                         <div><span>http://mbblog-com.stackstaging.com/browse.php?</span>id=<?php echo $_SESSION['id']; ?> </div>
+                         <div><span>http://localhost/blog/browse.php?</span>id=<?php echo $_SESSION['id']; ?> </div>
                     </div>                   
                 </div>
             </form>                
