@@ -206,8 +206,8 @@ if(array_key_exists('submit', $_POST)) {
                 </div>        
 
                 <button type="submit" name="submit" class="button-primary">Sign Up</button>
-
-                <p><a class="toggleForms">Log in</a></p>
+                <p class="or-pos">or</p>
+                <p><a class="toggleForms">Go to Log in page</a></p>
 
             </form>
 
@@ -233,8 +233,8 @@ if(array_key_exists('submit', $_POST)) {
                 </div>        
 
                 <button type="submit" name="submit" class="button-primary">Log In</button>
-
-                <p><a class="toggleForms">Sign Up</a></p>
+                <p class="or-pos">or</p>
+                <p><a class="toggleForms">Go to Sign Up page</a></p>
 
             </form>   
 
