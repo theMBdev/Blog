@@ -26,7 +26,7 @@ include('sessioncheck.php');
                     $result = mysqli_query($mysqli,$sql);
 
                     $row = mysqli_fetch_assoc($result) ;                   
-                    echo "<h2>" . $row["title"] ."</h2>";
+                    echo $row["title"];
 
                     ?>
 
@@ -59,7 +59,7 @@ include('sessioncheck.php');
 
                     <div class="rightcolumn">
                         <div class="card">
-                            <h2>About Me</h2>
+                            <h3>About Me</h3>
                             <?php 
                             $sql = "SELECT name FROM users WHERE id=".$_SESSION['id']."";
 
@@ -80,12 +80,6 @@ include('sessioncheck.php');
                             $row = mysqli_fetch_assoc($result);
                             echo "<p>" . $row["description"] ."</p>";
                             ?>                      
-                        </div>
-
-
-                        <div class="card">
-                            <h3>Follow Me</h3>
-                            <p>Some text..</p>
                         </div>
 
                     </div>

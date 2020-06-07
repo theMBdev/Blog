@@ -170,7 +170,7 @@ if(array_key_exists('submit', $_POST)) {
             body {
                 background: none;  
             }
-            
+
         </style>
 
     </head>
@@ -181,7 +181,7 @@ if(array_key_exists('submit', $_POST)) {
 
             <h1>Blog</h1>
 
-            <p><strong>A simple and beutiful blogging platform.</strong></p>
+            <p><strong>A simple blogging platform.</strong></p>
 
             <div id="error"><?php if ($error!="") {
     echo '<div class="alert alert-danger" role="alert">'.$error.'</div>';} ?></div>
@@ -189,7 +189,7 @@ if(array_key_exists('submit', $_POST)) {
 
             <form method=post id="signUpForm">
 
-                <p>interested Sign up now</p>
+                <p class="login-title">Sign up now</p>
 
                 <div class="form-group">
                     <input type="text" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email">
@@ -206,8 +206,8 @@ if(array_key_exists('submit', $_POST)) {
                 </div>        
 
                 <button type="submit" name="submit" class="button-primary">Sign Up</button>
-
-                <p><a class="toggleForms">Log in</a></p>
+                <p class="or-pos">or</p>
+                <p><a class="toggleForms">Go to Log in page</a></p>
 
             </form>
 
@@ -215,13 +215,13 @@ if(array_key_exists('submit', $_POST)) {
 
             <form method=post id="logInForm">
 
-                <p>Log in using your username and password</p>
+                <p class="login-title">Log in using your username and password</p>
 
                 <div class="form-group">
-                    <input type="text" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email log in">
+                    <input type="text" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter email">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" name="password" placeholder="Password log in">
+                    <input type="password" class="form-control" name="password" placeholder="Password">
                 </div>
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input" name="stayLoggedIn" >
@@ -233,8 +233,8 @@ if(array_key_exists('submit', $_POST)) {
                 </div>        
 
                 <button type="submit" name="submit" class="button-primary">Log In</button>
-
-                <p><a class="toggleForms">Sign Up</a></p>
+                <p class="or-pos">or</p>
+                <p><a class="toggleForms">Go to Sign Up page</a></p>
 
             </form>   
 
